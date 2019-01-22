@@ -68,7 +68,7 @@ public class Customer {
     public static boolean login(String email, String password){
         boolean success = false;
         String [] LOGIN_WHERE = {email,password};
-        Cursor cursor = db.query(XYCDbContract.CustomerTable.TABLE_NAME,null, XYCDbContract.CustomerTable.userName + " = ? " + "AND " + XYCDbContract.CustomerTable.userName + " = ? ",LOGIN_WHERE,null,null,null);
+        Cursor cursor = db.query(XYCDbContract.CustomerTable.TABLE_NAME,null, XYCDbContract.CustomerTable.userName + " = ? " + "AND " + XYCDbContract.CustomerTable.password + " = ? ",LOGIN_WHERE,null,null,null);
         if(cursor.getCount() > 0){
 
 
@@ -110,7 +110,7 @@ public class Customer {
         customerLoans.clear();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(dateFormat);
         String [] selectionArgs = {Long.toString(rowId)};
-        Cursor cursor = db.query(XYCDbContract.LoanTable.TABLE_NAME,null, XYCDbContract.LoanTable.row_Id + " = ?" ,selectionArgs,null,null,null);
+        Cursor cursor = db.query(XYCDbContract.LoanTable.TABLE_NAME,null, XYCDbContract.LoanTable.customerId + " = ?" ,selectionArgs,null,null,null);
         if(cursor.getCount() > 0){
             while (cursor.moveToNext()){
                 Loan fillLoan = new Loan();
