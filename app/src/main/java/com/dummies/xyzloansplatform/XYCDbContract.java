@@ -32,4 +32,11 @@ public final class XYCDbContract {
         public static final String approvedDate = "Approved_Date";
         public static final String amountPaid = "Amount_Paid";
     }
+
+    public static class AdminTable implements BaseColumns{
+        public static final String TABLE_NAME = "admin";
+        public static final String rowId = "rowid";
+        public static final String userName = "User_Name";
+        public static final String password = "Password";
+    }
 }

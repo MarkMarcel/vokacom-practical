@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".screens.Register" />
-        <activity android:name=".screens.Loans"></activity>
+        <activity android:name=".screens.Loans" />
+        <activity android:name=".screens.Admins"></activity>
     </application>
 
 </manifest>

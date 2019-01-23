@@ -8,8 +8,10 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.dummies.xyzloansplatform.Config;
@@ -26,6 +28,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     private TextInputLayout textInputLayoutPassword;
     private AppCompatButton appCompatButtonLogin;
     private AppCompatTextView textViewLinkRegister;
+    private AppCompatCheckBox admin, customer;
     // Used to load the 'native-lib' library on application startup.
     static {
         System.loadLibrary("native-lib");
@@ -43,10 +46,30 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         textInputLayoutPassword = (TextInputLayout) findViewById(R.id.textInputLayoutPassword);
         appCompatButtonLogin = (AppCompatButton) findViewById(R.id.appCompatButtonLogin);
         textViewLinkRegister = (AppCompatTextView) findViewById(R.id.textViewLinkRegister);
-
+        admin = findViewById(R.id.admin);
+        customer = findViewById(R.id.customer);
         appCompatButtonLogin.setOnClickListener(this);
         textViewLinkRegister.setOnClickListener(this);
 
+        customer.setChecked(true);
+
+        admin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    customer.setChecked(false);
+                }
+            }
+        });
+
+        customer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    admin.setChecked(false);
+                }
+            }
+        });
         //Config
         Config.runConfig(getApplicationContext());
 
@@ -57,12 +80,23 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         String strPassword = password.getText().toString().trim();
 
         if(strEmail.length() > 0 && strPassword.length() > 0){
-            if(Customer.login(strEmail,strPassword)){
-                Intent intentLoan = new Intent(getApplicationContext(), Loans.class);
-                startActivity(intentLoan);
-            }else{
-                Toast.makeText(getApplicationContext(),"Wrong Username or Password",Toast.LENGTH_SHORT).show();
+
+            if(customer.isChecked()){
+                if(Customer.login(strEmail,strPassword)){
+                    Intent intentLoan = new Intent(getApplicationContext(), Loans.class);
+                    startActivity(intentLoan);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Wrong Username or Password",Toast.LENGTH_SHORT).show();
+                }
+            }else {
+                if(admin.isChecked()){
+                    Intent intentAdmin = new Intent(getApplicationContext(), Admins.class);
+                    startActivity(intentAdmin);
+                }else{
+                    Toast.makeText(getApplicationContext(),"Wrong Username or Password",Toast.LENGTH_SHORT).show();
+                }
             }
+
         }else {
             Toast.makeText(getApplicationContext(),"Enter email or password",Toast.LENGTH_SHORT).show();
         }

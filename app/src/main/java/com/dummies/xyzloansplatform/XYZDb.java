@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class XYZDb extends SQLiteOpenHelper {
 
-    public static int VERSION = 1;
+    public static int VERSION = 2;
     public static String NAME = "xyzdb";
 
     private String CREATE_CUSTOMER_TABLE = "CREATE TABLE IF NOT EXISTS " + XYCDbContract.CustomerTable.TABLE_NAME  + " ( "+
@@ -24,6 +24,10 @@ public class XYZDb extends SQLiteOpenHelper {
             XYCDbContract.CustomerTable.customerIdNo +" VARCHAR(50) NOT NULL," +
             XYCDbContract.CustomerTable.userName +" VARCHAR(100) NOT NULL," +
             XYCDbContract.CustomerTable.password +" VARCHAR(100) NOT NULL" +")";
+    private String CREATE_ADMIN_TABLE = "CREATE TABLE IF NOT EXISTS " + XYCDbContract.AdminTable.TABLE_NAME  + " ( "+
+            XYCDbContract.AdminTable.rowId +" INTEGER PRIMARY KEY," +
+            XYCDbContract.AdminTable.userName +" VARCHAR(100) NOT NULL," +
+            XYCDbContract.AdminTable.password +" VARCHAR(100) NOT NULL" +")";
 
     private String  CREATE_LOAN_TABLE = "CREATE TABLE IF NOT EXISTS " + XYCDbContract.LoanTable.TABLE_NAME +"(" +
             XYCDbContract.LoanTable.row_Id +" INTEGER PRIMARY KEY,"+
@@ -41,10 +45,12 @@ public class XYZDb extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db){
         db.execSQL(CREATE_CUSTOMER_TABLE);
         db.execSQL(CREATE_LOAN_TABLE);
+        db.execSQL(CREATE_ADMIN_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         onCreate(db);
+
     }
 }

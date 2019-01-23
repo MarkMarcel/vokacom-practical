@@ -1,44 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dummies.xyzloansplatform.screens.Loans">
+    tools:context="com.dummies.xyzloansplatform.screens.Admins">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="com.dummies.xyzloansplatform.screens.Loans">
-
-        <LinearLayout
-            android:id="@+id/customer"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"/>
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/apply"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:background="@color/colorTextHint"
-            android:text="Apply"/>
-
+        android:layout_margin="10dp">
 
         <android.support.v7.widget.AppCompatTextView
-            android:id="@+id/yourloan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:textStyle="bold"
             android:textSize="20sp"
-            android:text="Your Loans"/>
-
+            android:text="XYZ Registered Customers"/>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:orientation="horizontal" android:layout_width="match_parent"
@@ -48,54 +28,49 @@
             android:background="@color/colorTextHint">
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:text="Approved Date"
+                android:text="Name"
                 android:layout_weight="1"/>
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/principal"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:text="Principal"
+                android:text="Digital Address"
                 android:layout_weight="1"/>
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/interest"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:text="Interest To Date"
+                android:text="Employment Status"
                 android:layout_weight="1"/>
 
             <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/amountpaid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:text="Amount Paid"
+                android:text="Email"
                 android:layout_weight="1"/>
         </LinearLayout>
 
 
-
         <LinearLayout
-            android:id="@+id/customerloan"
+            android:id="@+id/llcustomer"
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
-
 </ScrollView>

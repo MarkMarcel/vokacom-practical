@@ -28,237 +28,267 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="Name"
-                android:textStyle="bold"
-                android:textSize="20dp" />
-
             <android.support.v7.widget.LinearLayoutCompat
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10dp"
                 android:weightSum="2">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/Tfname"
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/admin"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Admin"/>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/fname"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="First Name"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
-
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/lTName"
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/customer"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
-
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/lName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Last Name"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="Customer"/>
 
             </android.support.v7.widget.LinearLayoutCompat>
-
-        </android.support.v7.widget.LinearLayoutCompat>
-
-
-        <android.support.v7.widget.LinearLayoutCompat
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="Address and Phone"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
 
             <android.support.v7.widget.LinearLayoutCompat
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:id="@+id/tovanish"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tAddress"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="Name"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/digitalAddress"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Digital Address"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
-
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tPhone"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:weightSum="2">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/phone"
-                        android:layout_width="match_parent"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/Tfname"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="Phone"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/fname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="First Name"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/lTName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/lName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Last Name"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </android.support.v7.widget.LinearLayoutCompat>
 
             </android.support.v7.widget.LinearLayoutCompat>
 
-        </android.support.v7.widget.LinearLayoutCompat>
-
-        <android.support.v7.widget.LinearLayoutCompat
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatTextView
-                android:id="@+id/textViewLinkRegister"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="Marriage and Employment"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
 
             <android.support.v7.widget.LinearLayoutCompat
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tmarriage"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="Address and Phone"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/marriage"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Marital Status"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
-
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/temployment"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:weightSum="2">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/employment"
-                        android:layout_width="match_parent"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tAddress"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="Employment Status"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/digitalAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Digital Address"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/phone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Phone"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </android.support.v7.widget.LinearLayoutCompat>
 
             </android.support.v7.widget.LinearLayoutCompat>
-
-        </android.support.v7.widget.LinearLayoutCompat>
-
-        <android.support.v7.widget.LinearLayoutCompat
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <android.support.v7.widget.AppCompatTextView
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="ID"
-                android:textStyle="bold"
-                android:textSize="20dp" />
 
             <android.support.v7.widget.LinearLayoutCompat
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="2">
+                android:layout_height="wrap_content">
 
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/ttype"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/textViewLinkRegister"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="Marriage and Employment"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/type"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="ID Type"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
-
-
-                <android.support.design.widget.TextInputLayout
-                    android:id="@+id/tNo"
-                    android:layout_width="0dp"
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
-                    android:layout_weight="1">
+                    android:weightSum="2">
 
-                    <android.support.design.widget.TextInputEditText
-                        android:id="@+id/no"
-                        android:layout_width="match_parent"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tmarriage"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:hint="ID No"
-                        android:inputType="text"
-                        android:maxLines="1"
-                        android:textColor="@android:color/white" />
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/marriage"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Marital Status"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/temployment"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/employment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Employment Status"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </android.support.v7.widget.LinearLayoutCompat>
 
             </android.support.v7.widget.LinearLayoutCompat>
 
+            <android.support.v7.widget.LinearLayoutCompat
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:gravity="center"
+                    android:text="ID"
+                    android:textStyle="bold"
+                    android:textSize="20dp" />
+
+                <android.support.v7.widget.LinearLayoutCompat
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/ttype"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="ID Type"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/tNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:layout_weight="1">
+
+                        <android.support.design.widget.TextInputEditText
+                            android:id="@+id/no"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="ID No"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textColor="@android:color/white" />
+                    </android.support.design.widget.TextInputLayout>
+
+                </android.support.v7.widget.LinearLayoutCompat>
+
+            </android.support.v7.widget.LinearLayoutCompat>
         </android.support.v7.widget.LinearLayoutCompat>
         <!-- break-->
         <android.support.design.widget.TextInputLayout

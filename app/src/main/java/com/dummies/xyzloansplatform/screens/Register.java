@@ -5,12 +5,16 @@ import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.AppCompatCheckBox;
 import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.dummies.xyzloansplatform.R;
 import com.dummies.xyzloansplatform.XYCDbContract;
+import com.dummies.xyzloansplatform.models.Admin;
 import com.dummies.xyzloansplatform.models.Customer;
 
 import java.util.HashMap;
@@ -31,6 +35,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
 
     private AppCompatButton appCompatButton;
     private AppCompatTextView textViewLink;
+    private AppCompatCheckBox admin, customer;
+    private LinearLayoutCompat llVanish;
     //private TextInputEditText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +59,30 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         cPassword = findViewById(R.id.textInputEditTextConfirmPassword);
         appCompatButton = findViewById(R.id.appCompatButtonRegister);
         textViewLink = findViewById(R.id.appCompatTextViewLoginLink);
+        admin = findViewById(R.id.admin);
+        customer = findViewById(R.id.customer);
+        llVanish = findViewById(R.id.tovanish);
 
+        customer.setChecked(true);
+        admin.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    llVanish.setVisibility(View.GONE);
+                    customer.setChecked(false);
+                }
+            }
+        });
+
+        customer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    llVanish.setVisibility(View.VISIBLE);
+                    admin.setChecked(false);
+                }
+            }
+        });
         appCompatButton.setOnClickListener(this);
         textViewLink.setOnClickListener(this);
     }
@@ -67,48 +96,81 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
     }
 
     private void validate(){
-        String strFName = fName.getText().toString().trim();
-        String strLName = lName.getText().toString().trim();
-        String strAddress = dAddress.getText().toString().trim();
-        String strMStatus = mStatus.getText().toString().trim();
-        String strEStatus = eStatus.getText().toString().trim();
-        String strType = idType.getText().toString().trim();
-        String strIdNo = idNo.getText().toString().trim();
-        String strEmail = email.getText().toString().trim();
-        String strPassword = password.getText().toString().trim();
-        String strCPassword = cPassword.getText().toString().trim();
 
-        if(strFName.length() <= 0 || strLName.length() <= 0 || strAddress.length() <= 0 || strMStatus.length() <= 0 || strEStatus.length() <= 0 || strType.length() <= 0 ||
-                strIdNo.length() <= 0 || strEmail.length() <= 0 || strPassword.length() <= 0 ||strCPassword.length() <= 0){
-            Toast.makeText(getApplicationContext(),"All fields are required",Toast.LENGTH_SHORT).show();
-            return;
-        }
+        if(admin.isChecked()){
+            String strEmail = email.getText().toString().trim();
+            String strPassword = password.getText().toString().trim();
+            String strCPassword = cPassword.getText().toString().trim();
 
-        if(!strCPassword.equals(strPassword)){
-            Toast.makeText(getApplicationContext(),"Passwords do not match",Toast.LENGTH_SHORT).show();
-        }else {
-            HashMap<String,String> registrationDetails = new HashMap<>();
-            registrationDetails.put(XYCDbContract.CustomerTable.firstName,strFName);
-            registrationDetails.put(XYCDbContract.CustomerTable.lastName,strLName);
-            registrationDetails.put(XYCDbContract.CustomerTable.digitalAddress,strAddress);
-            registrationDetails.put(XYCDbContract.CustomerTable.maritalStatus,strMStatus);
-            registrationDetails.put(XYCDbContract.CustomerTable.employmentStatus,strEStatus);
-            registrationDetails.put(XYCDbContract.CustomerTable.employer,"Employer");
-            registrationDetails.put(XYCDbContract.CustomerTable.customerId,strType);
-            registrationDetails.put(XYCDbContract.CustomerTable.customerIdNo,strIdNo);
-            registrationDetails.put(XYCDbContract.CustomerTable.userName,strEmail);
-            registrationDetails.put(XYCDbContract.CustomerTable.password,strPassword);
+            if(strEmail.length() <= 0 || strPassword.length() <= 0 ||strCPassword.length() <= 0){
+                Toast.makeText(getApplicationContext(),"All fields are required",Toast.LENGTH_SHORT).show();
+                return;
+            }
 
-            long reg = Customer.register(registrationDetails);
-            if(reg != 2){
-                Toast.makeText(getApplicationContext(),"succesful",Toast.LENGTH_SHORT).show();
-                Intent intentLogin = new Intent(getApplicationContext(), Login.class);
-                startActivity(intentLogin);
-
+            if(!strCPassword.equals(strPassword)){
+                Toast.makeText(getApplicationContext(),"Passwords do not match",Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(getApplicationContext(),"unsuccesful",Toast.LENGTH_SHORT).show();
+                HashMap<String,String> registrationDetails = new HashMap<>();
+                registrationDetails.put(XYCDbContract.CustomerTable.userName,strEmail);
+                registrationDetails.put(XYCDbContract.CustomerTable.password,strPassword);
+
+                long reg = Admin.register(registrationDetails);
+                if(reg != 2){
+                    Toast.makeText(getApplicationContext(),"succesful",Toast.LENGTH_SHORT).show();
+                    Intent intentLogin = new Intent(getApplicationContext(), Login.class);
+                    startActivity(intentLogin);
+
+                }else {
+                    Toast.makeText(getApplicationContext(),"unsuccesful",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }else {
+
+
+            String strFName = fName.getText().toString().trim();
+            String strLName = lName.getText().toString().trim();
+            String strAddress = dAddress.getText().toString().trim();
+            String strMStatus = mStatus.getText().toString().trim();
+            String strEStatus = eStatus.getText().toString().trim();
+            String strType = idType.getText().toString().trim();
+            String strIdNo = idNo.getText().toString().trim();
+            String strEmail = email.getText().toString().trim();
+            String strPassword = password.getText().toString().trim();
+            String strCPassword = cPassword.getText().toString().trim();
+
+            if(strFName.length() <= 0 || strLName.length() <= 0 || strAddress.length() <= 0 || strMStatus.length() <= 0 || strEStatus.length() <= 0 || strType.length() <= 0 ||
+                    strIdNo.length() <= 0 || strEmail.length() <= 0 || strPassword.length() <= 0 ||strCPassword.length() <= 0){
+                Toast.makeText(getApplicationContext(),"All fields are required",Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            if(!strCPassword.equals(strPassword)){
+                Toast.makeText(getApplicationContext(),"Passwords do not match",Toast.LENGTH_SHORT).show();
+            }else {
+                HashMap<String, String> registrationDetails = new HashMap<>();
+                registrationDetails.put(XYCDbContract.CustomerTable.firstName, strFName);
+                registrationDetails.put(XYCDbContract.CustomerTable.lastName, strLName);
+                registrationDetails.put(XYCDbContract.CustomerTable.digitalAddress, strAddress);
+                registrationDetails.put(XYCDbContract.CustomerTable.maritalStatus, strMStatus);
+                registrationDetails.put(XYCDbContract.CustomerTable.employmentStatus, strEStatus);
+                registrationDetails.put(XYCDbContract.CustomerTable.employer, "Employer");
+                registrationDetails.put(XYCDbContract.CustomerTable.customerId, strType);
+                registrationDetails.put(XYCDbContract.CustomerTable.customerIdNo, strIdNo);
+                registrationDetails.put(XYCDbContract.CustomerTable.userName, strEmail);
+                registrationDetails.put(XYCDbContract.CustomerTable.password, strPassword);
+
+                long reg = Customer.register(registrationDetails);
+                if (reg != 2) {
+                    Toast.makeText(getApplicationContext(), "succesful", Toast.LENGTH_SHORT).show();
+                    Intent intentLogin = new Intent(getApplicationContext(), Login.class);
+                    startActivity(intentLogin);
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "unsuccesful", Toast.LENGTH_SHORT).show();
+                }
             }
         }
+
 
     }
 }
